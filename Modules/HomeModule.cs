@@ -17,9 +17,11 @@ namespace GameApp
         string computerMove = newGame.CompChoice();
         Game newTestGame = new Game(Request.Form["player1"],computerMove);
         List<string> currentPlay = Game.GetListString();
-        currentPlay.Add(newTestGame.GetP1());
-        currentPlay.Add(newTestGame.GetP2());
-        currentPlay.Add(newTestGame.Result());
+        // currentPlay.Add(newTestGame.GetP1());
+        // currentPlay.Add(newTestGame.GetP2());
+        // currentPlay.Add(newTestGame.Result());
+        foreach (string word in currentPlay)
+        { Console.WriteLine(word);}
         return View["index.cshtml", currentPlay];
       };
       // Get["/testPercentage"] = _ => {

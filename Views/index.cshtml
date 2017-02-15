@@ -31,8 +31,9 @@
 
 @if (@Model != null)
 {
- <p> Total Games is @Model[0] <p>
- <p> Player 1 wins @Model[1] <p>
- <p> percentage @Model[2] <p>
+  @foreach (string coin in @Model)
+   {
+     <p>@coin</p>
+   }
 }
   <a href="/testPercentage">See your analysis</a>
