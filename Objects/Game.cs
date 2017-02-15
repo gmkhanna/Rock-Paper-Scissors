@@ -37,13 +37,13 @@ namespace Game.Objects
       _player2 = newPlayer2;
     }
 
-    public string Result(string player1, string player2)
+    public string Result()
     {
-      if(player1 == player2)
+      if(_player1 == _player2)
       {
         _result = "Draw";
       }
-      else if( (player1 == "Rock") & (player2 == "Scissors") | (player1 == "Paper") & (player2 == "Rock") | (player1 == "Scissors") & (player2 == "Paper") )
+      else if( (_player1 == "Rock") & (_player2 == "Scissors") | (_player1 == "Paper") & (_player2 == "Rock") | (_player1 == "Scissors") & (_player2 == "Paper") )
       {
         _result = "Player 1 Wins";
       }

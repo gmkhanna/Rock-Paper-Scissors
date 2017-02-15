@@ -36,10 +36,10 @@ namespace Game.Objects
       Assert.Equal(testResult, verifyInput);
     }
     [Fact]
-    public void Result_P1RockP2Paper_Draw()
+    public void Result_P1RockP2Paper_Lose()
     {
       Game testGame = new Game("Rock","Paper");
-      string testResult = testGame.Result("Rock","Paper");
+      string testResult = testGame.Result();
       string verifyInput = "Player 2 Wins";
       Assert.Equal(testResult, verifyInput);
     }
