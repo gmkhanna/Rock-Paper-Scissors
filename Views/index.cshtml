@@ -29,10 +29,10 @@
         <button type="submit" name="button" class="btn btn-md btn-success">Let's See!</button>
     </form>
 
-  <div class="result">
-    <p> You chose : @Model.GetP1()</p>
-    <p> Computer chose : @Model.GetP2()</p>
-    <p> The result is : @Model.Result()</p>
-  </div>
-
+@if (@Model != null)
+{
+ <p> Total Games is @Model[0] <p>
+ <p> Player 1 wins @Model[1] <p>
+ <p> percentage @Model[2] <p>
+}
   <a href="/testPercentage">See your analysis</a>

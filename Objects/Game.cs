@@ -11,6 +11,10 @@ namespace GameApp.Objects
     public static float _counter = 0;
     public static float _player1Win = 0;
 
+    public static List<string> stringList = new List<string>{};
+    public static List<float> floatList = new List<float>{};
+
+
     public string CompChoice()
     {
       Random compChoice = new Random();
@@ -58,6 +62,7 @@ namespace GameApp.Objects
       _player2 = newPlayer2;
     }
 
+
     public string Result()
     {
       if(_player1 == _player2)
@@ -78,24 +83,38 @@ namespace GameApp.Objects
       return _result;
     }
 
-    // public void AddList()
+    public static List<string> GetListString()
+    {
+      string counter = Convert.ToString(_counter);
+      string player1Win = Convert.ToString(_player1Win);
+      string percentage = Convert.ToString(_player1Win/_counter);
+      stringList.Add(counter);
+      stringList.Add(player1Win);
+      stringList.Add(percentage);
+      return stringList;
+    }
+
+    // public static float GetCounter()
     // {
-    //   _results.Add(this);
+    //   return _counter;
+    // }
+    //
+    // public static float GetPlayer1Win()
+    // {
+    //   return _player1Win;
+    // }
+    //
+    // public static float PieChartP1()
+    // {
+    //   return _player1Win/_counter;
     // }
 
-    public static float GetCounter()
-    {
-      return _counter;
-    }
-
-    public static float GetPlayer1Win()
-    {
-      return _player1Win;
-    }
-
-    public static float PieChartP1()
-    {
-      return _player1Win/_counter;
-    }
+    // public static List<float> GetListFloat()
+    // {
+    //   floatList.Add(_counter);
+    //   floatList.Add(_player1Win);
+    //   floatList.Add(_player1Win/_counter;);
+    //   return floatList;
+    // }
   }
 }
