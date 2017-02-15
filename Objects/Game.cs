@@ -7,6 +7,7 @@ namespace Game.Objects
   {
     private string _player1;
     private string _player2;
+    public string _result = "";
 
     public static List<string> _results = new List<string>{};
 
@@ -34,6 +35,23 @@ namespace Game.Objects
     public void SetP2(string newPlayer2)
     {
       _player2 = newPlayer2;
+    }
+
+    public string Result(string player1, string player2)
+    {
+      if(player1 == player2)
+      {
+        _result = "Draw";
+      }
+      else if( (player1 == "Rock") & (player2 == "Scissors") | (player1 == "Paper") & (player2 == "Rock") | (player1 == "Scissors") & (player2 == "Paper") )
+      {
+        _result = "Player 1 Wins";
+      }
+      else
+      {
+         _result = "Player 2 Wins";
+      }
+      return _result;
     }
   }
 }

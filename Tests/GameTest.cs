@@ -19,5 +19,29 @@ namespace Game.Objects
       string verifyInput = "Scissors";
       Assert.Equal(testGame.GetP2(), verifyInput);
     }
+    [Fact]
+    public void Result_P1RockP2Scissors_P1Wins()
+    {
+      Game testGame = new Game("Rock","Scissors");
+      string testResult = testGame.Result("Rock","Scissors");
+      string verifyInput = "Player 1 Wins";
+      Assert.Equal(testResult, verifyInput);
+    }
+    [Fact]
+    public void Result_P1RockP2Rock_Draw()
+    {
+      Game testGame = new Game("Rock","Rock");
+      string testResult = testGame.Result("Rock","Rock");
+      string verifyInput = "Draw";
+      Assert.Equal(testResult, verifyInput);
+    }
+    [Fact]
+    public void Result_P1RockP2Paper_Draw()
+    {
+      Game testGame = new Game("Rock","Paper");
+      string testResult = testGame.Result("Rock","Paper");
+      string verifyInput = "Player 2 Wins";
+      Assert.Equal(testResult, verifyInput);
+    }
   }
 }
