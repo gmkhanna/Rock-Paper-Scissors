@@ -1,7 +1,7 @@
 using Xunit;
 using System.Collections.Generic;
 
-namespace Game.Objects
+namespace GameApp.Objects
 {
   public class GameTest
   {
@@ -23,7 +23,7 @@ namespace Game.Objects
     public void Result_P1RockP2Scissors_P1Wins()
     {
       Game testGame = new Game("Rock","Scissors");
-      string testResult = testGame.Result("Rock","Scissors");
+      string testResult = testGame.Result();
       string verifyInput = "Player 1 Wins";
       Assert.Equal(testResult, verifyInput);
     }
@@ -31,7 +31,7 @@ namespace Game.Objects
     public void Result_P1RockP2Rock_Draw()
     {
       Game testGame = new Game("Rock","Rock");
-      string testResult = testGame.Result("Rock","Rock");
+      string testResult = testGame.Result();
       string verifyInput = "Draw";
       Assert.Equal(testResult, verifyInput);
     }

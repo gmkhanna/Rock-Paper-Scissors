@@ -29,9 +29,45 @@
   * Input: Select Paper
   * Output: "Paper"
 
-*  if user chooses Scissors - value return = "Scissors"
+* If user chooses Scissors - value return = "Scissors"
   * Input: Select Scissors
   * Output: "Scissors"
+
+*  If Player 1 chooses Rock - Player 2 chooses Scissors
+  * Input: Rock - Scissors
+  * Output: "Player 1 Wins"
+
+*  If Player 1 chooses Scissors - Player 2 chooses Paper
+  * Input: Scissors - Paper
+  * Output: "Player 1 Wins"
+
+*  If Player 1 chooses Paper - Player 2 chooses Rock
+  * Input: Paper - Rock
+  * Output: "Player 1 Wins"
+
+*  If Player 1 chooses Rock - Player 2 chooses Rock
+  * Input: Rock - Rock
+  * Output: "Draw"
+
+*  If Player 1 chooses Paper - Player 2 chooses Paper
+  * Input: Paper - Paper
+  * Output: "Draw"
+
+*  If Player 1 chooses Scissors - Player 2 chooses Scissors
+  * Input: Scissors - Scissors
+  * Output: "Draw"
+
+*  If Player 2 chooses Rock - Player 1 chooses Scissors
+  * Input: Rock - Scissors
+  * Output: "Player 2 Wins"
+
+*  If Player 2 chooses Scissors - Player 1 chooses Paper
+  * Input: Scissors - Paper
+  * Output: "Player 2 Wins"
+
+*  If Player 2 chooses Paper - Player 1 chooses Rock
+  * Input: Paper - Rock
+  * Output: "Player 2 Wins"
 
 
 ## Known Bugs

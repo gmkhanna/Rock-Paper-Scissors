@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace Game.Objects
+namespace GameApp.Objects
 {
   public class Game
   {
