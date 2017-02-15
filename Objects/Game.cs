@@ -8,8 +8,29 @@ namespace GameApp.Objects
     private string _player1;
     private string _player2;
     public string _result = "";
+    public static float _counter = 0;
+    public static float _player1Win = 0;
 
-    public static List<string> _results = new List<string>{};
+    public string CompChoice()
+    {
+      Random compChoice = new Random();
+      int compWeapon = compChoice.Next(0, 3);
+      string comMove = "";
+      // return compWeapon;
+        if(compWeapon == 0)
+        {
+          comMove = "Rock";
+        }
+        else if(compWeapon == 1)
+        {
+          comMove = "Paper";
+        }
+        else
+        {
+          comMove = "Scissors";
+        }
+      return comMove;
+    }
 
     public Game(string player1, string player2)
     {
@@ -46,12 +67,35 @@ namespace GameApp.Objects
       else if( (_player1 == "Rock") & (_player2 == "Scissors") | (_player1 == "Paper") & (_player2 == "Rock") | (_player1 == "Scissors") & (_player2 == "Paper") )
       {
         _result = "Player 1 Wins";
+        _player1Win+=1;
+        _counter+=1;
       }
       else
       {
-         _result = "Player 2 Wins";
+       _result = "Player 2 Wins";
+       _counter+=1;
       }
       return _result;
+    }
+
+    // public void AddList()
+    // {
+    //   _results.Add(this);
+    // }
+
+    public static float GetCounter()
+    {
+      return _counter;
+    }
+
+    public static float GetPlayer1Win()
+    {
+      return _player1Win;
+    }
+
+    public static float PieChartP1()
+    {
+      return _player1Win/_counter;
     }
   }
 }

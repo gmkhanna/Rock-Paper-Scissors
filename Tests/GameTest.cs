@@ -43,5 +43,16 @@ namespace GameApp.Objects
       string verifyInput = "Player 2 Wins";
       Assert.Equal(testResult, verifyInput);
     }
+    [Fact]
+    public void Result_CompChoice_P1Wins()
+    {
+      Game testGame = new Game("Rock","");
+      string computerMove = testGame.CompChoice();
+      Game newTestGame = new Game("Rock",computerMove);
+      string testResult = newTestGame.Result();
+
+      string verifyInput = "Player 1 Wins";
+      Assert.Equal(testResult, verifyInput);
+    }
   }
 }

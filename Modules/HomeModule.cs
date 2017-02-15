@@ -10,12 +10,24 @@ namespace GameApp
     public HomeModule()
     {
       Get["/"] = _ => {
-        return View["index.cshtml"];
+        Game newGame = new Game("","");
+        return View["index.cshtml", newGame];
       };
       Post["/result"] = _ => {
-        Game newGame = new Game(Request.Form["player1"],Request.Form["player2"]);
-        string result = newGame.Result();
-        return View["index.cshtml", result];
+        Game newGame = new Game("","");
+        string computerMove = newGame.CompChoice();
+        Game newTestGame = new Game(Request.Form["player1"],computerMove);
+        return View["index.cshtml", newTestGame];
+      };
+      Get["/testPercentage"] = _ => {
+        float player1WinCounts = Game.GetPlayer1Win();
+        float totalCounter = Game.GetCounter();
+        float player1Percentage = Game.PieChartP1();
+        Dictionary<string, float> percentage = new Dictionary<string, float>();
+        percentage.Add("player1Wins",player1WinCounts);
+        percentage.Add("totalGames",totalCounter);
+        percentage.Add("player1Percentage",player1Percentage);
+        return View["testPercentage.cshtml", percentage];
       };
     }
   }
