@@ -18,22 +18,14 @@
   </div>
 </div>
 
-
-      @* <div class="form-group">
-        <label for="player2">Player 2 Choose Your Weapon</label>
-        <div class="form-group"><input type ="radio" name="player2" id="player2" value="Rock">Rock</div>
-        <div class="form-group"><input type ="radio" name="player2" id="player2" value="Paper">Paper</div>
-        <div class="form-group"><input type ="radio" name="player2" id="player2" value="Scissors">Scissors</div>
-      </div> *@
-
         <button type="submit" name="button" class="btn btn-md btn-success">Let's See!</button>
     </form>
 
 @if (@Model != null)
 {
-  @foreach (string coin in @Model)
-   {
-     <p>@coin</p>
-   }
+   <p>Number of games so far: @Model[0]</p>
+   <p>Your choice: @Model[3]</p>
+   <p>Computer choice: @Model[4]</p>
+   <p>Result of latest game: @Model[5]</p>
 }
   <a href="/testPercentage">See your analysis</a>
