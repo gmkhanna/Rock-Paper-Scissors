@@ -1,31 +1,66 @@
-@{
-  Layout="Shared/_Layout.cshtml";
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/styles.css" type = "text/css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
 
-<div class="jumbotron">
-  <h2>Rock, Paper, Scissors</h2>
-</div>
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Wins');
+        data.addColumn('number', 'Times');
+        data.addRows([
+          ['Player1', @Model[1]],
+          ['Computer',(@Model[0] - @Model[1])],
+        ]);
 
-<h2>Let's Play that Ol' Schoolyard Classic</h2>
+        // Set chart options
+        var options = {'title':'Statistic',
+                       'width':400,
+                       'height':300};
 
-<div class="panel panel-success">
-  <div class="panel-heading">Player Choose Your Weapon</div>
-  <form action="/result" method="post">
-  <div class="panel-body">
-      <div class="radio"><input type ="radio" name="player1" id="player1" value="Rock">Rock</div>
-      <div class="radio"><input type ="radio" name="player1" id="player1" value="Paper">Paper</div>
-      <div class="radio"><input type ="radio" name="player1" id="player1" value="Scissors">Scissors</div>
-  </div>
-</div>
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <meta charset="utf-8">
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Rock, Paper, Scissors</h2>
+      </div>
 
-        <button type="submit" name="button" class="btn btn-md btn-success">Let's See!</button>
-    </form>
+      <h2>Let's Play that Ol' Schoolyard Classic</h2>
+      <div class="panel panel-success">
+        <div class="panel-heading">Player Choose Your Weapon</div>
+        <form action="/result" method="post">
+        <div class="panel-body">
+            <div class="radio"><input type ="radio" name="player1" id="player1" value="Rock">Rock</div>
+            <div class="radio"><input type ="radio" name="player1" id="player1" value="Paper">Paper</div>
+            <div class="radio"><input type ="radio" name="player1" id="player1" value="Scissors">Scissors</div>
+        </div>
+      </div>
 
-@if (@Model != null)
-{
-   <p>Number of games so far: @Model[0]</p>
-   <p>Your choice: @Model[3]</p>
-   <p>Computer choice: @Model[4]</p>
-   <p>Result of latest game: @Model[5]</p>
-}
-  <a href="/testPercentage">See your analysis</a>
+              <button type="submit" name="button" class="btn btn-md btn-success">Let's See!</button>
+          </form>
+
+          @if (@Model != null)
+          {
+             <p>Number of games so far: @Model[0]</p>
+             <p>Your choice: @Model[3]</p>
+             <p>Computer choice: @Model[4]</p>
+             <p>Result of latest game: @Model[5]</p>
+          <div id="chart_div"></div>
+          }
+    </div>
+
+
+  </body>
+</html>
